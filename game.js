@@ -9,7 +9,7 @@ const bgMusic = document.getElementById("bg-music");
 let squares = [];
 let score = 0;
 let timerInterval;
-let timeLeft = 18;
+let timeLeft = 180;
 const width = 4;
 
 function updateTimerDisplay() {
@@ -19,7 +19,7 @@ function updateTimerDisplay() {
 }
 
 function startTimer() {
-  timeLeft = 18;
+  timeLeft = 180;
   updateTimerDisplay();
   timerInterval = setInterval(() => {
     timeLeft--;
