@@ -237,17 +237,11 @@ function endGame(reason) {
   // 🔇 Stop background music
   bgMusic.pause();
 
-  try {
-        window.parent.postMessage(
-            {
-                type: 'GAME_OVER',
-                score:  score,
-            },
-            'http://localhost:5173' // ✅ React app origin
-        );
-    } catch (err) {
-        console.error('❌ Failed to postMessage to parent:', err);
-    }
+ const origin = window.location.hostname.includes("localhost")
+  ? "http://localhost:5173"
+  : "https://www.fulboost.fun";
+
+window.parent.postMessage({ type: "GAME_OVER", score: score }, origin);
 }
 
 startButton.addEventListener("click", () => {
